@@ -5,9 +5,9 @@ export function PackageJsonFileCode(Packages) {
   "name": "",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node src/index.js"
   },
   "author": "",
   "license": "",

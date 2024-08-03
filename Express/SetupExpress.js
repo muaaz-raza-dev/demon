@@ -1,11 +1,11 @@
 import path from "path"
 import fs from "fs"
-import InitializeMainFiles from "./Actions/InitMainFiles.js";
+import InitializeMainFiles from "./Actions/Setups/InitMainFiles.js";
 import { PrintResult } from "./PrintResult.js";
-import { InitMainDirsNFiles } from "./Actions/InitMainDirnFiles.js";
+import { InitDirs } from "./Actions/Setups/InitDirs.js";
 import ora from "ora";
+const spinner = ora("Setting up your application")
 export async function SetupExpressApp(appName,port,isCors,Db) {
-    const spinner = ora("Setting up your application").start()
     const currentDirectory = process.cwd()
     const FolderPath =path.join(currentDirectory, appName)
 
@@ -19,7 +19,7 @@ export async function SetupExpressApp(appName,port,isCors,Db) {
 
         spinner.succeed("Main files configured")
         spinner.start("Setting up standard express directory")
-        await InitMainDirsNFiles(FolderPath)
+        await InitDirs(FolderPath,Db)
 
         spinner.succeed("Directory configured")
         
@@ -27,6 +27,7 @@ export async function SetupExpressApp(appName,port,isCors,Db) {
         spinner.succeed("Setup completed successfully")
 } catch (err) {
         console.log(err)
+        spinner.fail("Error lanuching you app.")
         await fs.promises.rm(FolderPath,{force:true,recursive:true})
         if (err.code === 'EEXIST') {
             console.error(`Folder "${appName}" already exists.`);

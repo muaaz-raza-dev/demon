@@ -5,9 +5,10 @@ const InitializePackageFiles = async(DirPath,lib,isCors,Db) => {
 const PackageFilePath = path.join(DirPath,"package.json");
 let{type,isDbConnection} =Db
 
-let orms= {"mongo":{"mongoose":"","mongo":"","dotenv": "",}}
+let orms= {"mongo":{"mongoose":"","mongo":"",}}
 
-let Packages = {[lib]:"",...(isCors?{cors:""}:{}) , ...(isDbConnection?orms[type]:{} )};
+let Packages = {[lib]:"","dotenv":"",...(isCors?{cors:""}:{}) ,
+ ...(isDbConnection?orms[type]:{} )};
 
 
 try {

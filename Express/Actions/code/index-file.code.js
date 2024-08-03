@@ -1,7 +1,6 @@
 // Import the Express module
 export function IndexFileCode(Port,isCors,isDbConnection) {
 return  (`
-${isDbConnection?"require('dotenv').config()":""}
 require('dotenv').config()
 const express = require('express');
 const cors = require('cors');
