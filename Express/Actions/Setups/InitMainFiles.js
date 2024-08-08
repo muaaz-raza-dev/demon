@@ -1,7 +1,7 @@
 import fs from "fs"
 import path from "path";
 import { IndexFileCode } from "../code/index-file.code.js";
-import InitializePackageFiles from "../InitPackageFile.js";
+import InitializePackageFiles from "./InitPackageFile.js";
 import { InitializeDbConnectionFiles } from "./InitDbConnectionFiles.js";
 const InitializeMainFiles = async(DirPath,lib,port,isCors,Db) => {
 let {isDbConnection} =Db

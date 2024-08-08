@@ -1,4 +1,3 @@
-// Import the Express module
 export function PackageJsonFileCode(Packages) {
     return  (`
     {

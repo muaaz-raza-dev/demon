@@ -1,6 +1,6 @@
 import fs from "fs"
 import path from "path";
-import { PackageJsonFileCode } from "./code/pacakge-json.code.js";
+import { PackageJsonFileCode } from "../code/pacakge-json.code.js";
 const InitializePackageFiles = async(DirPath,lib,isCors,Db) => {
 const PackageFilePath = path.join(DirPath,"package.json");
 let{type,isDbConnection} =Db
