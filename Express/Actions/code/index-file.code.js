@@ -3,7 +3,7 @@ export function IndexFileCode(Port,isCors,isDbConnection) {
 return  (`
 require('dotenv').config()
 const express = require('express');
-const cors = require('cors');
+${isCors ? `const cors = require('cors');`:""}
 ${isDbConnection?"const {dbConnection} = require('./db.js')":""}
 
 const app = express();
